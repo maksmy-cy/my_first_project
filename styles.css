@@ -1,0 +1,186 @@
+/* ============================================
+   Часть 2: Работа с селекторами
+   ============================================ */
+
+/* Селектор по тегу */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    background-color: #fafafa;
+}
+
+h1 {
+    color: darkblue;
+}
+
+/* Селектор по классу */
+.main-header {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-bottom: 2px solid #ccc;
+}
+
+.subtitle {
+    font-style: italic;
+    color: #666;
+}
+
+/* Селектор по ID */
+#site-title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Дочерний селектор */
+.content > article {
+    background-color: white;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+/* Селектор потомков */
+.post p {
+    margin-bottom: 10px;
+}
+
+/* Соседний селектор */
+h2 + p {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Селектор атрибутов (пример) */
+[class~="card"] {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* ============================================
+   Часть 3: Каскад и специфичность
+   ============================================ */
+
+/* Базовый стиль для всех параграфов */
+p {
+    color: black;
+    font-size: 16px;
+}
+
+/* Более специфичный селектор */
+.post p {
+    color: darkgreen;
+}
+
+/* Ещё более специфичный */
+.featured-post p {
+    color: darkred;
+}
+
+/* Самый специфичный */
+.featured-post .intro {
+    color: purple;
+    font-size: 18px;
+}
+
+/* Специфичность: 0,1,0 */
+.important {
+    color: red;
+    font-weight: bold;
+}
+
+/* Специфичность: 0,1,1 */
+li.important {
+    color: darkred;
+    text-decoration: underline;
+}
+
+/* Специфичность: 0,0,2 */
+ul li {
+    color: blue;
+}
+
+/* !important — переопределяет все */
+.important {
+    color: orange !important;
+}
+
+/* ============================================
+   Часть 4: Наследование и псевдоклассы
+   ============================================ */
+
+/* Наследуемые свойства */
+.examples {
+    font-size: 14px;
+    font-weight: normal;
+    /* color и font-family наследуются от body */
+}
+
+/* Явное наследование */
+.examples .card {
+    border: 2px solid #3498db;
+    padding: inherit; /* наследует padding от родителя */
+}
+
+/* Псевдоклассы */
+li:hover {
+    background-color: yellow;
+    cursor: pointer;
+}
+
+li:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.main-header:hover {
+    background-color: #e9e9e9;
+    transition: background-color 0.3s;
+}
+
+/* Псевдоэлементы */
+p::first-line {
+    font-weight: bold;
+}
+
+.post h2::after {
+    content: " ★";
+    color: gold;
+}
+
+.card::before {
+    content: "→ ";
+    color: green;
+}
+
+
+
+:root {
+    --main-accent: #3498db;
+    --main-radius: 5px;
+}
+
+.card {
+    border-radius: var(--main-radius);
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    .main-header {
+        padding: 10px;
+    }
+    #site-title {
+        font-size: 1.5em;
+    }
+}
+
+/* Анимация */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.main-header {
+    animation: fadeIn 0.6s ease-out;
+}

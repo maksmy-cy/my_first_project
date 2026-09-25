@@ -1,186 +1,222 @@
-/* ============================================
-   Часть 2: Работа с селекторами
-   ============================================ */
-
-/* Селектор по тегу */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #2c3e50;
-    background-color: #fafafa;
+/* ========== HEADER ========== */
+.header {
+  background-color: #1f2933;
+  color: #ffffff;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  border-bottom: 4px solid #ff6b6b;
 }
 
-h1 {
-    color: darkblue;
+.header h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 
-/* Селектор по классу */
-.main-header {
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-bottom: 2px solid #ccc;
+/* ========== ГЛАВНЫЙ КОНТЕЙНЕР ========== */
+.main {
+  display: flex;
+  min-height: 500px;
+  gap: 0;
 }
 
-.subtitle {
-    font-style: italic;
-    color: #666;
+/* ========== НАВИГАЦИЯ ========== */
+.navigation {
+  flex: 0 0 220px;
+  background-color: #1f2933;
+  color: #ffffff;
+  padding: 1.5rem 1rem;
 }
 
-/* Селектор по ID */
-#site-title {
-    text-align: center;
-    margin-bottom: 10px;
+.navigation h2 {
+  margin-bottom: 1.25rem;
+  color: #4ecdc4;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* Дочерний селектор */
-.content > article {
-    background-color: white;
-    padding: 15px;
-    margin: 10px 0;
+.navigation ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
-/* Селектор потомков */
-.post p {
-    margin-bottom: 10px;
+.navigation li {
+  flex: 1;
+  text-align: left;
 }
 
-/* Соседний селектор */
-h2 + p {
-    font-weight: bold;
-    font-size: 1.1em;
+.navigation a {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.25s ease, padding-left 0.25s ease;
 }
 
-/* Селектор атрибутов (пример) */
-[class~="card"] {
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 5px;
+.navigation a:hover {
+  background-color: #ff6b6b;
+  padding-left: 1.5rem;
 }
 
-/* ============================================
-   Часть 3: Каскад и специфичность
-   ============================================ */
-
-/* Базовый стиль для всех параграфов */
-p {
-    color: black;
-    font-size: 16px;
-}
-
-/* Более специфичный селектор */
-.post p {
-    color: darkgreen;
-}
-
-/* Ещё более специфичный */
-.featured-post p {
-    color: darkred;
-}
-
-/* Самый специфичный */
-.featured-post .intro {
-    color: purple;
-    font-size: 18px;
-}
-
-/* Специфичность: 0,1,0 */
-.important {
-    color: red;
-    font-weight: bold;
-}
-
-/* Специфичность: 0,1,1 */
-li.important {
-    color: darkred;
-    text-decoration: underline;
-}
-
-/* Специфичность: 0,0,2 */
-ul li {
-    color: blue;
-}
-
-/* !important — переопределяет все */
-.important {
-    color: orange !important;
-}
-
-/* ============================================
-   Часть 4: Наследование и псевдоклассы
-   ============================================ */
-
-/* Наследуемые свойства */
-.examples {
-    font-size: 14px;
-    font-weight: normal;
-    /* color и font-family наследуются от body */
-}
-
-/* Явное наследование */
-.examples .card {
-    border: 2px solid #3498db;
-    padding: inherit; /* наследует padding от родителя */
-}
-
-/* Псевдоклассы */
-li:hover {
-    background-color: yellow;
-    cursor: pointer;
-}
-
-li:nth-child(odd) {
-    background-color: #f9f9f9;
-}
-
-.main-header:hover {
-    background-color: #e9e9e9;
-    transition: background-color 0.3s;
-}
-
-/* Псевдоэлементы */
-p::first-line {
-    font-weight: bold;
-}
-
-.post h2::after {
-    content: " ★";
-    color: gold;
-}
-
-.card::before {
-    content: "→ ";
-    color: green;
-}
-
-
-
-:root {
-    --main-accent: #3498db;
-    --main-radius: 5px;
+/* ========== КОНТЕНТ С КАРТОЧКАМИ ========== */
+.content {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background-color: #f2f4f6;
 }
 
 .card {
-    border-radius: var(--main-radius);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #d6dbe0;
+  box-shadow: 0 2px 6px rgba(31, 41, 51, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-@media (max-width: 600px) {
-    body {
-        font-size: 14px;
-    }
-    .main-header {
-        padding: 10px;
-    }
-    #site-title {
-        font-size: 1.5em;
-    }
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(31, 41, 51, 0.12);
 }
 
-/* Анимация */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to   { opacity: 1; transform: translateY(0); }
+.card h3 {
+  margin-bottom: 0.75rem;
+  color: #1f2933;
+  border-bottom: 2px solid #4ecdc4;
+  padding-bottom: 0.5rem;
 }
 
-.main-header {
-    animation: fadeIn 0.6s ease-out;
+.card p {
+  color: #52606d;
+}
+
+/* Изменение порядка карточек */
+.card:nth-child(1) { order: 2; }
+.card:nth-child(2) { order: 1; }
+.card:nth-child(3) { order: 3; }
+
+/* Разные размеры карточек */
+.card:first-child { flex: 2; }
+.card:last-child  { flex: 0.7; }
+
+/* ========== БОКОВАЯ ПАНЕЛЬ ========== */
+.sidebar {
+  flex: 0 0 260px;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-left: 3px dashed #4ecdc4;
+}
+
+.sidebar h3 {
+  margin-bottom: 0.75rem;
+  color: #ff6b6b;
+}
+
+/* ========== ФУТЕР ========== */
+.footer {
+  background-color: #1f2933;
+  color: #ffffff;
+  padding: 2.5rem 1rem;
+  border-top: 4px solid #4ecdc4;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1;
+  text-align: center;
+  padding: 1.25rem;
+  background-color: #2b3641;
+  border-radius: 10px;
+  transition: background-color 0.25s ease;
+}
+
+.footer-section:hover {
+  background-color: #ff6b6b;
+}
+
+.footer-section h4 {
+  margin-bottom: 0.5rem;
+  color: #4ecdc4;
+}
+
+.footer-section:hover h4 {
+  color: #ffffff;
+}
+
+/* ============================================================
+   АДАПТИВНОСТЬ
+   ============================================================ */
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .navigation {
+    flex: 0 0 auto;
+  }
+
+  .navigation ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .navigation li {
+    flex: 0 0 auto;
+  }
+
+  .sidebar {
+    flex: 0 0 auto;
+    border-left: none;
+    border-top: 3px dashed #4ecdc4;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .card:first-child,
+  .card:last-child {
+    flex: 1;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    min-height: 90px;
+    padding: 1rem;
+  }
+
+  .header h1 {
+    font-size: 1.4rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
 }

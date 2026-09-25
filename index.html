@@ -1,40 +1,69 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS: Селекторы и каскад</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Layout</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="main-header">
-        <h1 id="site-title">Изучаем CSS</h1>
-        <p class="subtitle">Практика с селекторами и каскадом</p>
-    </header>
 
-    <main class="content">
-        <article class="post featured-post">
-            <h2>Основы CSS</h2>
-            <p class="intro">CSS — это язык стилей для веб-страниц.</p>
-            <p>Он позволяет управлять внешним видом элементов.</p>
-        </article>
+  <header class="header">
+    <h1>Flexbox в действии</h1>
+  </header>
 
-        <section class="examples">
-            <div class="card">
-                <h3>Селекторы</h3>
-                <ul>
-                    <li class="important">По тегу</li>
-                    <li>По классу</li>
-                    <li class="important">По ID</li>
-                    <li>Комбинаторы</li>
-                </ul>
-            </div>
-        </section>
-    </main>
+  <main class="main">
 
-    <footer class="main-footer">
-        <p>&copy; 2026 CSS Практика</p>
-    </footer>
+    <nav class="navigation">
+      <h2>Навигация</h2>
+      <ul>
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">О нас</a></li>
+        <li><a href="#">Услуги</a></li>
+        <li><a href="#">Портфолио</a></li>
+        <li><a href="#">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <section class="content">
+      <article class="card">
+        <h3>Карточка 1</h3>
+        <p>Первая карточка с описанием услуги или товара.</p>
+      </article>
+      <article class="card">
+        <h3>Карточка 2</h3>
+        <p>Вторая карточка с описанием услуги или товара.</p>
+      </article>
+      <article class="card">
+        <h3>Карточка 3</h3>
+        <p>Третья карточка с описанием услуги или товара.</p>
+      </article>
+    </section>
+
+    <aside class="sidebar">
+      <h3>Боковая панель</h3>
+      <p>Дополнительная информация, ссылки, реклама.</p>
+    </aside>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>О нас</h4>
+        <p>Краткая информация о компании.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Услуги</h4>
+        <p>Перечень основных услуг.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Контакты</h4>
+        <p>Телефон, email, адрес.</p>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>

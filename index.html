@@ -1,69 +1,56 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flexbox Layout</title>
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Layout</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="grid-container">
+        <header class="header">
+            <h1>CSS Grid в действии</h1>
+        </header>
 
-  <header class="header">
-    <h1>Flexbox в действии</h1>
-  </header>
+        <nav class="navigation">
+            <h2>Навигация</h2>
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Услуги</a></li>
+                <li><a href="#">Портфолио</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
 
-  <main class="main">
+        <main class="main-content">
+            <article class="featured">
+                <h2>Основной контент</h2>
+                <p>Это главная статья на странице</p>
+            </article>
 
-    <nav class="navigation">
-      <h2>Навигация</h2>
-      <ul>
-        <li><a href="#">Главная</a></li>
-        <li><a href="#">О нас</a></li>
-        <li><a href="#">Услуги</a></li>
-        <li><a href="#">Портфолио</a></li>
-        <li><a href="#">Контакты</a></li>
-      </ul>
-    </nav>
+            <section class="gallery">
+                <div class="gallery-item">Изображение 1</div>
+                <div class="gallery-item">Изображение 2</div>
+                <div class="gallery-item">Изображение 3</div>
+                <div class="gallery-item">Изображение 4</div>
+                <div class="gallery-item">Изображение 5</div>
+                <div class="gallery-item">Изображение 6</div>
+            </section>
+        </main>
 
-    <section class="content">
-      <article class="card">
-        <h3>Карточка 1</h3>
-        <p>Первая карточка с описанием услуги или товара.</p>
-      </article>
-      <article class="card">
-        <h3>Карточка 2</h3>
-        <p>Вторая карточка с описанием услуги или товара.</p>
-      </article>
-      <article class="card">
-        <h3>Карточка 3</h3>
-        <p>Третья карточка с описанием услуги или товара.</p>
-      </article>
-    </section>
+        <aside class="sidebar">
+            <h2>Боковая панель</h2>
+            <p>Дополнительная информация и виджеты</p>
+        </aside>
 
-    <aside class="sidebar">
-      <h3>Боковая панель</h3>
-      <p>Дополнительная информация, ссылки, реклама.</p>
-    </aside>
-
-  </main>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>О нас</h4>
-        <p>Краткая информация о компании.</p>
-      </div>
-      <div class="footer-section">
-        <h4>Услуги</h4>
-        <p>Перечень основных услуг.</p>
-      </div>
-      <div class="footer-section">
-        <h4>Контакты</h4>
-        <p>Телефон, email, адрес.</p>
-      </div>
+        <footer class="footer">
+            <div class="footer-section">Контакты</div>
+            <div class="footer-section">Соцсети</div>
+            <div class="footer-section">Партнеры</div>
+            <div class="footer-section">Подписка</div>
+        </footer>
     </div>
-  </footer>
-
 </body>
 </html>

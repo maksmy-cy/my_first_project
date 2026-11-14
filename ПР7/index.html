@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация — вёрстка и валидация форм</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#registration-form">Перейти к форме</a>
+
+  <main class="page">
+    <section class="card" aria-labelledby="form-title">
+      <header class="card__header">
+        <h1 id="form-title">Регистрация</h1>
+        <p class="card__lead">Поля, отмеченные <span class="required-mark" aria-hidden="true">*</span> (звёздочкой), обязательны для заполнения.</p>
+      </header>
+
+      <!-- novalidate: отключаем встроенные всплывающие подсказки браузера, валидацию делает script.js -->
+      <form id="registration-form" novalidate>
+        <!-- Сводка ошибок для скринридеров -->
+        <div id="form-summary" class="form-summary" role="alert" tabindex="-1" hidden></div>
+
+        <fieldset class="fieldset">
+          <legend>Личные данные</legend>
+
+          <div class="grid">
+            <div class="field">
+              <label for="fullName">Имя и фамилия <span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="text" id="fullName" name="fullName" autocomplete="name"
+                     required minlength="2" maxlength="60" placeholder="Иван Петров"
+                     aria-describedby="fullName-error" aria-invalid="false">
+              <p class="error" id="fullName-error" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="birthDate">Дата рождения <span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="date" id="birthDate" name="birthDate" autocomplete="bday"
+                     required aria-describedby="birthDate-hint birthDate-error" aria-invalid="false">
+              <p class="hint" id="birthDate-hint">Регистрация доступна с 14 лет.</p>
+              <p class="error" id="birthDate-error" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="country">Страна <span class="required-mark" aria-hidden="true">*</span></label>
+              <select id="country" name="country" autocomplete="country-name" required
+                      aria-describedby="country-error" aria-invalid="false">
+                <option value="">Выберите страну</option>
+                <option value="ru">Россия</option>
+                <option value="by">Беларусь</option>
+                <option value="kz">Казахстан</option>
+                <option value="other">Другая</option>
+              </select>
+              <p class="error" id="country-error" aria-live="polite"></p>
+            </div>
+
+            <fieldset class="field field--group" aria-describedby="gender-error">
+              <legend>Пол <span class="required-mark" aria-hidden="true">*</span></legend>
+              <div class="choices">
+                <label class="choice"><input type="radio" name="gender" value="m" required> Мужской</label>
+                <label class="choice"><input type="radio" name="gender" value="f"> Женский</label>
+                <label class="choice"><input type="radio" name="gender" value="n"> Не указывать</label>
+              </div>
+              <p class="error" id="gender-error" aria-live="polite"></p>
+            </fieldset>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend>Контакты</legend>
+
+          <div class="grid">
+            <div class="field">
+              <label for="email">Email <span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" inputmode="email"
+                     required placeholder="name@example.com"
+                     aria-describedby="email-error" aria-invalid="false">
+              <p class="error" id="email-error" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="phone">Телефон <span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel"
+                     required placeholder="+7 900 123-45-67"
+                     pattern="^(\+7|8)[\s\-()]*\d{3}[\s\-()]*\d{3}[\s\-]*\d{2}[\s\-]*\d{2}$"
+                     aria-describedby="phone-hint phone-error" aria-invalid="false">
+              <p class="hint" id="phone-hint">Формат: +7 900 123-45-67 или 8 900 123-45-67.</p>
+              <p class="error" id="phone-error" aria-live="polite"></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend>Безопасность</legend>
+
+          <div class="grid">
+            <div class="field">
+              <label for="password">Пароль <span class="required-mark" aria-hidden="true">*</span></label>
+              <div class="password-wrap">
+                <input type="password" id="password" name="password" autocomplete="new-password"
+                       required minlength="8" aria-describedby="password-rules password-error" aria-invalid="false">
+                <button type="button" class="toggle" data-toggle="password" aria-pressed="false">Показать</button>
+              </div>
+              <div class="strength" aria-hidden="true"><span class="strength__bar" id="strength-bar"></span></div>
+              <p class="hint" id="strength-text" aria-live="polite">Надёжность пароля: —</p>
+              <ul class="rules" id="password-rules">
+                <li data-rule="length">Не менее 8 символов</li>
+                <li data-rule="lower">Строчная буква</li>
+                <li data-rule="upper">Заглавная буква</li>
+                <li data-rule="digit">Цифра</li>
+                <li data-rule="special">Спецсимвол (!@#$%…)</li>
+              </ul>
+              <p class="error" id="password-error" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="passwordConfirm">Повторите пароль <span class="required-mark" aria-hidden="true">*</span></label>
+              <div class="password-wrap">
+                <input type="password" id="passwordConfirm" name="passwordConfirm" autocomplete="new-password"
+                       required aria-describedby="passwordConfirm-error" aria-invalid="false">
+                <button type="button" class="toggle" data-toggle="passwordConfirm" aria-pressed="false">Показать</button>
+              </div>
+              <p class="error" id="passwordConfirm-error" aria-live="polite"></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend>Дополнительно</legend>
+
+          <div class="field">
+            <label for="about">О себе</label>
+            <textarea id="about" name="about" rows="4" maxlength="200"
+                      aria-describedby="about-counter about-error" aria-invalid="false"></textarea>
+            <p class="hint" id="about-counter">Осталось символов: 200</p>
+            <p class="error" id="about-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label class="choice">
+              <input type="checkbox" id="terms" name="terms" required aria-describedby="terms-error" aria-invalid="false">
+              <span>Я принимаю <a href="#">условия использования</a> <span class="required-mark" aria-hidden="true">*</span></span>
+            </label>
+            <p class="error" id="terms-error" aria-live="polite"></p>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit" class="btn btn--primary">Зарегистрироваться</button>
+          <button type="reset" class="btn btn--secondary">Очистить</button>
+        </div>
+
+        <p id="form-success" class="form-success" role="status" hidden>
+          Регистрация прошла успешно! Данные корректны.
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+/* Минимальный сброс стилей */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { min-height: 100vh; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+img, svg, video { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; }
+fieldset { border: 0; min-inline-size: 0; }
+legend { padding: 0; }
+ul, ol { list-style: none; }
+a { color: inherit; }
+textarea { resize: vertical; }

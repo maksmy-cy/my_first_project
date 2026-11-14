@@ -1,0 +1,42 @@
+/* Дизайн-токены, извлечённые из макета Figma (см. report.md) */
+:root {
+  /* Цвета */
+  --color-primary: #2C3E50;        /* шапка, заголовки */
+  --color-primary-dark: #1F2D3A;   /* футер */
+  --color-secondary: #3498DB;      /* ссылки, иконки, конец градиента */
+  --color-accent: #E67E22;         /* CTA-кнопка */
+  --color-accent-hover: #CF6D17;
+  --color-bg: #F5F7FA;             /* фон секции преимуществ */
+  --color-surface: #FFFFFF;        /* карточки */
+  --color-text: #2C3E50;
+  --color-text-muted: #5F6C7B;
+  --color-text-light: #ECF0F1;     /* текст на тёмном фоне */
+  --gradient-hero: linear-gradient(135deg, #2C3E50 0%, #3498DB 100%);
+
+  /* Типографика */
+  --font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --fs-h1: 56px;
+  --fs-h2: 36px;
+  --fs-h3: 22px;
+  --fs-lead: 20px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --lh-heading: 1.2;
+  --lh-body: 1.5;
+
+  /* Сетка и отступы */
+  --container-width: 1200px;
+  --container-padding: 24px;
+  --header-height: 80px;
+  --section-gap: 96px;
+  --grid-gap: 24px;
+  --space-xs: 8px;
+  --space-s: 16px;
+  --space-m: 24px;
+  --space-l: 48px;
+
+  /* Прочее */
+  --radius-card: 12px;
+  --radius-btn: 8px;
+  --shadow-card: 0 4px 20px rgba(44, 62, 80, .08);
+}

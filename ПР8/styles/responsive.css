@@ -1,0 +1,41 @@
+/* Макет содержит только десктоп (1440). Брейкпоинты выбраны по контенту. */
+
+/* Планшет ≤ 1024px */
+@media (max-width: 1024px) {
+  :root { --fs-h1: 44px; --fs-h2: 32px; --section-gap: 72px; }
+  .nav__list { gap: 24px; }
+  .features__grid { grid-template-columns: repeat(2, 1fr); }
+  .features__grid .card:last-child { grid-column: 1 / -1; }
+  .footer__inner { grid-template-columns: 1fr 1fr; }
+  .footer__brand { grid-column: 1 / -1; }
+}
+
+/* Мобильные ≤ 768px */
+@media (max-width: 768px) {
+  :root { --fs-h1: 36px; --fs-h2: 28px; --fs-lead: 18px; --section-gap: 56px; --header-height: 112px; }
+  .header__inner { flex-direction: column; justify-content: center; gap: 8px; }
+  .nav__list { gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .nav__link { font-size: 15px; }
+
+  .hero { min-height: auto; padding: 56px 0; text-align: center; }
+  .hero__inner { grid-template-columns: 1fr; }
+  .hero__subtitle { margin-inline: auto; }
+  .hero__image { order: -1; }
+  .hero__image img { max-width: 320px; }
+
+  .features__title { margin-bottom: 32px; }
+  .features__grid { grid-template-columns: 1fr; }
+  .card { padding: 28px 24px; }
+
+  .footer__inner { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* Узкие телефоны ≤ 400px */
+@media (max-width: 400px) {
+  :root { --container-padding: 16px; --fs-h1: 32px; }
+  .btn { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

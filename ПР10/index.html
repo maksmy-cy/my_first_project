@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ПР10 — JavaScript: работа с функциями</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>ПР10: JavaScript — работа с функциями</h1>
+
+        <section class="card">
+            <h2>Демо: валидатор пароля</h2>
+            <input id="pwd" type="text" placeholder="Введите пароль" autocomplete="off">
+            <ul id="pwd-errors"></ul>
+        </section>
+
+        <section class="card">
+            <h2>Демо: debounce и throttle</h2>
+            <input id="search" type="text" placeholder="Печатайте — смотрите счётчики">
+            <p>Нажатий клавиш: <b id="c-raw">0</b> ·
+               debounce (300 мс): <b id="c-deb">0</b> ·
+               throttle (300 мс): <b id="c-thr">0</b></p>
+        </section>
+
+        <section class="card">
+            <h2>Результаты тестов</h2>
+            <button id="rerun">Запустить заново</button>
+            <div id="results">Тесты выполняются…</div>
+        </section>
+    </main>
+
+    <script src="functions.js"></script>
+    <script src="tests.js"></script>
+    <script>
+        // Демо валидатора
+        const validate = createValidator({ minLength: 8 });
+        document.getElementById("pwd").addEventListener("input", (e) => {
+            const { valid, errors } = validate(e.target.value);
+            const ul = document.getElementById("pwd-errors");
+            ul.innerHTML = valid
+                ? '<li class="ok">✓ Пароль подходит</li>'
+                : errors.map((m) => `<li class="fail">✗ ${m}</li>`).join("");
+        });
+
+        // Демо debounce / throttle
+        const counters = { raw: 0, deb: 0, thr: 0 };
+        const show = (k) => (document.getElementById("c-" + k).textContent = ++counters[k]);
+        const onDeb = debounce(() => show("deb"), 300);
+        const onThr = throttle(() => show("thr"), 300);
+        document.getElementById("search").addEventListener("input", () => {
+            show("raw"); onDeb(); onThr();
+        });
+
+        document.getElementById("rerun").addEventListener("click", () => window.runTests());
+    </script>
+</body>
+</html>
